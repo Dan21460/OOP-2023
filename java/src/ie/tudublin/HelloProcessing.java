@@ -5,27 +5,65 @@ import processing.core.PApplet;
 public class HelloProcessing extends PApplet
 {
 
+	int screenWidth = 500;
+	int screenHeight = 500;
+
 	public void settings()
 	{
 		size(500, 500);
 	}
 
 	public void setup() {
-		
+
+		//colorMode(HSB);
+        background(255, 0, 0);
+
+        x1 = random(0, width);
+        x2 = random(0, width);
+        y1 = random(0, height);
+        y2 = random(0, height);
+
+        float range = 5;
+
+        x1dir = random(-range, range);
+        x2dir = random(-range, range);
+        y1dir = random(-range, range);
+        y2dir = random(-range, range);
+
+        smooth();
+
 		
 	}
+
+	float x1, y1, x2, y2;
+    float x1dir, x2dir, y1dir, y2dir;
+    float c = 0;
 
 	
 	public void draw()
 	{	
+        
+		fill(255, 255, 0);
+		circle(250, 250, 400);
+		fill(0, 255, 255);
+		triangle(250, 20, 20, 400, 480, 400);
+        
+        
 
-		stroke(255);
-		line(10, 10,100,100); // x1, y1, 
-		circle(300, 250, 70);
-		rect(10,300,20,100);
-		// stroke()
-		triangle(40, 90, 300, 30, 80, 20);
-    
+		if (!mousePressed) {
+			fill(255, 255, 255);
+			ellipse(250, 250, 180, 80);    
+        }
+
+		// Eye Pupil
+        if (!mousePressed) {
+			fill(0, 0, 0);
+            circle(250, 250, 50);   
+        }
+
+		
+		
+		
 	}
 
 }

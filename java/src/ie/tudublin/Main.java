@@ -3,10 +3,10 @@ package ie.tudublin;
 public class Main
 {
 
-	public static void helloProcessing()
+	public static void BugZap()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new HelloProcessing());
+        processing.core.PApplet.runSketch( a, new BugZap());
     }
 
 	public static void main(String[] args)
@@ -17,7 +17,12 @@ public class Main
 		penny.setName("Penny");
 		penny.speak();
 
-		helloProcessing();
+		BugZap();
+        /* 
+		Cat ginger = new Cat();
+		ginger.setName("Ginger");
+		ginger.kill();
+		*/
 	}
 	
 }

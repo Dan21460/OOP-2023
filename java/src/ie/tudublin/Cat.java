@@ -1,19 +1,17 @@
 package ie.tudublin;
 
 
-
 public class Cat {
 
     String name;
     private int catlives = 9; 
 
-    public void cat(String name)
+    public void setName(String name)
 	{
 		this.name = name;
-        catlives = 0;
 	}
 
-
+    
     public void kill()
     {
 
