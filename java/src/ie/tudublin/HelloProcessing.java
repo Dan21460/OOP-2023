@@ -5,65 +5,56 @@ import processing.core.PApplet;
 public class HelloProcessing extends PApplet
 {
 
-	int screenWidth = 500;
-	int screenHeight = 500;
+	int videoScale = 8;
+
+	int cols, rows;
 
 	public void settings()
 	{
-		size(500, 500);
+		size(800, 800);
 	}
 
 	public void setup() {
 
-		//colorMode(HSB);
-        background(255, 0, 0);
-
-        x1 = random(0, width);
-        x2 = random(0, width);
-        y1 = random(0, height);
-        y2 = random(0, height);
-
-        float range = 5;
-
-        x1dir = random(-range, range);
-        x2dir = random(-range, range);
-        y1dir = random(-range, range);
-        y2dir = random(-range, range);
-
-        smooth();
 
 		
+
+				
 	}
 
-	float x1, y1, x2, y2;
-    float x1dir, x2dir, y1dir, y2dir;
-    float c = 0;
 
 	
-	public void draw()
-	{	
-        
-		fill(255, 255, 0);
-		circle(250, 250, 400);
-		fill(0, 255, 255);
-		triangle(250, 20, 20, 400, 480, 400);
-        
-        
-
-		if (!mousePressed) {
-			fill(255, 255, 255);
-			ellipse(250, 250, 180, 80);    
-        }
-
-		// Eye Pupil
-        if (!mousePressed) {
-			fill(0, 0, 0);
-            circle(250, 250, 50);   
-        }
-
-		
-		
-		
+	void loadStars()
+	{
+		Table table = loadTable("HabHYG15ly.csv", "header");
+		for(TableRow r:table.rows())
+		{
+			Star s = new Star(r);
+			stars.add(s);
+		}
 	}
+
+	public Star(TableRow tr)
+ 	{
+ 		this(
+ 			tr.getInt("Hab?") == 1, 
+ 			tr.getString("Display Name"), 
+ 			tr.getFloat("Distance"),
+ 			tr.getFloat("Xg"),
+ 			tr.getFloat("Yg"),
+ 			tr.getFloat("Zg"),
+ 			tr.getFloat("AbsMag")
+ 		);
+ 	}
+ 	
+ 	public Star(boolean hab, String displayName, float distance, float xG, float yG, float zG, float absMag) {
+ 		this.hab = hab;
+ 		this.displayName = displayName;
+ 		this.distance = distance;
+ 		this.xG = xG;
+ 		this.yG = yG;
+ 		this.zG = zG;
+ 		this.absMag = absMag;
+ 	}
 
 }
