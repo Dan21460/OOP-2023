@@ -47,7 +47,7 @@ public class Audio1 extends PApplet
         // ab = ai.mix; 
 
         // And comment the next two lines out
-        ap = minim.loadFile("heroplanet.mp3", 1024);
+        ap = minim.loadFile("xiyang.mp3", 1024);
         ap.play();
         ab = ap.mix;
         colorMode(HSB);
@@ -74,7 +74,7 @@ public class Audio1 extends PApplet
         }
         average= sum / (float) ab.size();
 
-        smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f);
+        smoothedAmplitude = lerp(smoothedAmplitude, average, 0.5f);
         
         float cx = width / 2;
         float cy = height / 2;
@@ -84,11 +84,11 @@ public class Audio1 extends PApplet
                 background(0);
                 for(int i = 0 ; i < ab.size() ; i ++)
                 {
-                    //float c = map(ab.get(i), -1, 1, 0, 255);
+                    //float c = map(ab.get(i), -1, 1, 255, 0);
                     float c = map(i, 0, ab.size(), 0, 255);
                     stroke(c, 255, 255);
                     float f = ab.get(i) * halfH;
-                    line(i, halfH + f, i, halfH - f);                    
+                    line(i, halfH + f, halfH - f, i );                    
                 }
                 break;
         case 1:
