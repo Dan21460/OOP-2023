@@ -47,7 +47,7 @@ public class Audio1 extends PApplet
         // ab = ai.mix; 
 
         // And comment the next two lines out
-        ap = minim.loadFile("xiyang.mp3", 1024);
+        ap = minim.loadFile("stay.mp3", 1024);
         ap.play();
         ab = ap.mix;
         colorMode(HSB);
@@ -61,7 +61,7 @@ public class Audio1 extends PApplet
 
     public void draw()
     {
-        //background(0);
+        background(0);
         float halfH = height / 2;
         float average = 0;
         float sum = 0;
