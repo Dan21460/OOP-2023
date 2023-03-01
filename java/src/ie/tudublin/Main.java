@@ -37,6 +37,11 @@ public class Main
 	{
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new Audio2());
+
+		PitchSpeller ps = new PitchSpeller();
+		System.out.println(ps.spell(330));
+		System.out.println(ps.spell(420));
+		System.out.println(ps.spell(1980));
     }
 	
 	public static void main(String[] args)
